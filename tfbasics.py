@@ -56,7 +56,7 @@ def train_neural_network(x):
         sess.run(tf.initialize_all_variables())
         for epoch in range(hm_epochs):
             epoch_loss = 0
-            for _ in range(int(mnist.train.num_examples/batcjh_size)):
+            for _ in range(int(mnist.train.num_examples/batch_size)):
                 x, y = mnist.train.next_batch(batch_size)
                 _, c = sess.run([optimizer, cost], feed_dict = {x: x, y: y})
                 epoch_loss += c
