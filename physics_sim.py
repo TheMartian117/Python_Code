@@ -46,12 +46,11 @@ def onpick(event):
     text.set_position((xdata[ind], ydata[ind]))
     text.set_text(zip(xdata[ind], ydata[ind]))
 fig.canvas.mpl_connect('pick_event', onpick)
-
+one_var = lambda x: ((1-x)**2)/2
+mass_lamina, e = integrate.quad(one_var, 0, 1)
+print("The mass of this lamina, given the density function of p(x, y) = d, is", mass_lamina, "units. To find this, you need to look at the coordinates of the lamina, then take the integral of the function taking into consideration the domain.")
+print("Also, you could think of this as the combined charge of the lamina, and the density function could be the charge distribution")
 fig.show()
 plt.show()
-one_var = lambda x: ((1-x)**2)/2
-mass_lamina, e = integrate.quad(one_var)
-print("The mass of this lamina, given the density function of p(x, y) = d, is", mass_lamina, ", To find this, you need to look at the coordinates of the lamina, then take the integral of the function taking into consideration the domain.")
-print("Also, you could think of this as the combined charge of the lamina, and the density function could be the charge distribution")
 #This simulation and graph can tell physicists a lot about charge distribution of a certain function, or give them an idea of where the center of mass is potentially located
 #this type of distribution can be used in statistics as well
